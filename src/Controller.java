@@ -21,19 +21,22 @@ public class Controller {
         searchList2.add("Ist");
         searchList2.add("Mein");
         searchList2.add("Bachelor");
+        searchList2.add("Bachelor");
+        searchList2.add("Bachelor");
 
 
-        searchList2.ausgabe();
+    //    searchList2.ausgabe();
 
-        Iterator<Node> iterator= searchL.iterator();
+        Iterator<Node> iterator= searchList2.iterator();
 
         while(iterator.hasNext()){
           System.out.println(iterator.next());
         }
 
-        System.out.println("Die Anzahl der Objekte in der Liste beträgt: "+searchL.noWords());
-      System.out.println("Die Anzahl des gesuchten Objektes ist: "+searchL.count(100));
-      searchL.remove(7);
+        System.out.println("Die Anzahl der Objekte in der Liste beträgt: "+searchList2.noWords());
+      System.out.println("Die Anzahl des gesuchten Objektes ist: "+searchList2.count("Bachelor"));
+      searchList2.remove("Bachelor");
+
 
       searchL.ausgabe();
         System.out.println("Die Anzahl der Objekte in der Liste beträgt: "+searchL.noWords());

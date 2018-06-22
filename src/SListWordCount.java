@@ -56,6 +56,7 @@ public class SListWordCount {
 		ADSTool.resetTime();
 		for (String s : sl) {
 			count -= sl.count(s);
+
 		}
 		String itTime = ADSTool.stringRTime();
 		System.out.format("%8s", itTime);
@@ -125,6 +126,7 @@ public class SListWordCount {
 			test(zeilen, new SearchList<String>());
 		//	System.out.format(fmt, "  SmartSearchList");
 		//	test(zeilen, new SmartSearchList<String>());
+
 		}
 	}
 

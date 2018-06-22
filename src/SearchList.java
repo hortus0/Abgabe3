@@ -60,10 +60,15 @@ public class SearchList <T extends Comparable> implements SList {
 
     @Override
     public int count(Comparable comparable) {
+
         Node i=root;
-        while(comparable.compareTo(i.obj)!=0){
+        while(comparable.compareTo(i.obj)!=0 && i.next!=null ){
             i=i.next;
         }
+        if(i==null){
+            return 0;
+        }
+
         return i.vorkommen;
     }
 
@@ -77,9 +82,23 @@ public class SearchList <T extends Comparable> implements SList {
         if(i==null){
             return false;
         }
-        else{
+        else if(i.next!= null && i.prev!=null){
             i.next.prev=i.prev;
             i.prev.next=i.next;
+            return true;
+        }
+        else if(i.prev==null && i.next!=null){
+            root=i.next;
+            i.next.prev=null;
+
+            return true;
+        }
+        else if(i.next==null && i.prev!=null){
+            i.prev.next=null;
+            return true;
+        }
+        else{
+           i.prev.next=null;
             return true;
         }
         }
@@ -122,15 +141,7 @@ public class SearchList <T extends Comparable> implements SList {
             @Override
             public boolean hasNext() {
 
-                if(root!=null){
-                    if(i.next!=null){
-                        return true;
-                    }
-                    else{
-                        return false;
-                    }
-                }
-                return false;
+                return i!=null;
             }
 
             @Override
