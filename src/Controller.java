@@ -35,10 +35,10 @@ public class Controller {
 
         System.out.println("Die Anzahl der Objekte in der Liste beträgt: "+searchList2.noWords());
       System.out.println("Die Anzahl des gesuchten Objektes ist: "+searchList2.count("Bachelor"));
-      searchList2.remove("Bachelor");
+      searchList2.remove("Alte");
 
 
-      searchL.ausgabe();
+      searchList2.ausgabe();
         System.out.println("Die Anzahl der Objekte in der Liste beträgt: "+searchL.noWords());
       System.out.println("Die Summe der Vorkommen beträgt: "+searchL.noOccurences());
 

@@ -60,23 +60,30 @@ public class SearchList <T extends Comparable> implements SList {
 
     @Override
     public int count(Comparable comparable) {
+        if(root!=null) {
+            Node i = root;
+            while (comparable.compareTo(i.obj) != 0 && i.next != null) {
+                i = i.next;
+            }
+            if (comparable.compareTo(i.obj) != 0) {
+                return 0;
+            }
+       /* if(i.next==null){
+            return 0;
+        }*/
 
-        Node i=root;
-        while(comparable.compareTo(i.obj)!=0 && i.next!=null ){
-            i=i.next;
+            return i.vorkommen;
         }
-        if(i==null){
+        else{
             return 0;
         }
-
-        return i.vorkommen;
     }
 
     @Override
     public boolean remove(Comparable comparable) {
         if(root!=null){
         Node i=root;
-        while(comparable.compareTo(i.obj)!=0){
+        while(comparable.compareTo(i.obj)!=0 && i.next!=null){
             i=i.next;
         }
         if(i==null){
@@ -97,13 +104,13 @@ public class SearchList <T extends Comparable> implements SList {
             i.prev.next=null;
             return true;
         }
-        else{
-           i.prev.next=null;
+        else if(i.next==null && i.prev==null){
+           root=null;
             return true;
         }
         }
-        else{
-        return false;}
+
+        return false;
 
     }
 
